@@ -1,5 +1,7 @@
 package model;
 
+import java.sql.Date;
+import java.util.ArrayList;
 import java.util.Observer;
 import java.util.TimerTask;
 
@@ -22,9 +24,9 @@ abstract class Wettobjekt_Observeable extends TimerTask {
 		
 	}
 
-	private abstract void start();
+	abstract void start();
 
-	private abstract void end();
+	abstract void end();
 
 	public void alsObserveableMarkieren (Observer observer) {
 		
