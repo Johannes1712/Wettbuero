@@ -1,3 +1,4 @@
+package model;
 /**
  * 
  * @author Michael Krapf
