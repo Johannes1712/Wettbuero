@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.Observer;
 import java.util.TimerTask;
 
-abstract class Wettobjekt_Observeable extends TimerTask {
+abstract class Wettobjekt_Observeable extends TimerTask implements Observer {
 	protected int id;
 	protected Date start;
 	protected Date end;
@@ -28,7 +28,7 @@ abstract class Wettobjekt_Observeable extends TimerTask {
 
 	abstract void end();
 
-	public void alsObserveableMarkieren (Observer observer) {
+	public void alsObserveableMarkieren (Observer observer){
 		
 	}
 
