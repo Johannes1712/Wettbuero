@@ -5,6 +5,7 @@
  */
 
 import java.util.ArrayList;
+import model.Account;
 
 public class WettManager 
 {

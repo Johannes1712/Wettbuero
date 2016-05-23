@@ -5,21 +5,25 @@
  */
 
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import model.Account;
 
 public class WettDBManager 
 {
 	private Connection conn;
+	private ArrayList<Account> accounts = new ArrayList<Account>();
 	
-	public WettDBManager()
+	public WettDBManager() throws ClassNotFoundException, SQLException
 	{
-		
+		Class.forName("com.mysql.jdbc.Driver");
+		conn = DriverManager.getConnection("jdbc:mysql://localhost", "root", "");
 	}
 	
 	public ArrayList<Account> getAccounts()
 	{
-		
+		return accounts;
 	}
 	
 	public Wette getWette(Wette wette)
