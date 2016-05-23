@@ -1,6 +1,7 @@
 package model;
 //Buchis Klasse => finger weck!!!
-public class Account {
+public class Account 
+{
 	int kontoBetrag;
 	int kontoNummer;
 	String vorname;
