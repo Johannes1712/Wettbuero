@@ -2,11 +2,12 @@ package model;
 
 import java.sql.Date;
 import java.util.ArrayList;
+import java.util.Observable;
 import java.util.Observer;
 import java.util.Timer;
 import java.util.TimerTask;
 
-abstract class Wettobjekt_Observeable extends TimerTask implements Observer {
+abstract class Wettobjekt_Observeable extends Observable{
 	protected int id;
 	protected Date start;
 	protected Date end;
@@ -36,11 +37,14 @@ abstract class Wettobjekt_Observeable extends TimerTask implements Observer {
 	abstract void end();
 
 	public void alsObserveableMarkieren (Observer observer){
-		
+		this.addObserver(observer);
 	}
 
 	public void alleObserverUpdateSenden () {
-		
+		if(this.hasChanged()){
+			this.notifyObservers(this);
+			this.clearChanged();
+		}
 	}
 
 }

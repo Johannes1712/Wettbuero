@@ -12,10 +12,6 @@ public class ZahlenWettObjekt extends Wettobjekt_Observeable {
 	public ZahlenWettObjekt(int zahl){
 		this.zahl=zahl;
 	}
-	@Override
-	public void update(Observable o, Object arg) {
-		
-	}
 
 	@Override
 	void start() {
