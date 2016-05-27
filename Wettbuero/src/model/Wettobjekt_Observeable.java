@@ -3,6 +3,7 @@ package model;
 import java.sql.Date;
 import java.util.ArrayList;
 import java.util.Observer;
+import java.util.Timer;
 import java.util.TimerTask;
 
 abstract class Wettobjekt_Observeable extends TimerTask implements Observer {
@@ -13,7 +14,9 @@ abstract class Wettobjekt_Observeable extends TimerTask implements Observer {
 	public ArrayList<Observer> observer;
 
 	public Wettobjekt_Observeable() {
-		
+		Timer t = WettTimerSingleton.getInstance();
+		t.schedule(this, end);
+		t.schedule(this, begin);
 	}
 
 	public void wetten (Wette wette) {
@@ -21,7 +24,11 @@ abstract class Wettobjekt_Observeable extends TimerTask implements Observer {
 	}
 
 	public void run () {
-		
+		if(Zeit < end){
+		  start();
+		} else{
+			end();
+		}
 	}
 
 	abstract void start();
