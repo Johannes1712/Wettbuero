@@ -1,13 +1,15 @@
-package model;
 /**
  * 
  * @author Michael Krapf
  *
  */
 
+package model;
+
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -89,23 +91,55 @@ public class WettDBManager
 		return wettobjekt1;
 	}
 	
-	public void setAccount(Account account)
+	public void setAccount(Account account) throws SQLException
 	{
-		
+		String sql = "INSERT INTO account VALUES(?, ?, ?, ?, ?, ?, ?)";
+		PreparedStatement stmt = conn.prepareStatement(sql);
+		stmt.setInt(1, account.getKontonummer());
+		stmt.setString(2, account.getEmail());
+		stmt.setString(4, account.getNachname());
+		stmt.setString(5, account.getVorname());
+		stmt.setInt(6, account.getKontobetrag());
+		stmt.executeUpdate();
+		stmt.close();
 	}
 	
 	public void setWette(Wette wette)
 	{
-		
+		String sql = "INSERT INTO wette VALUES(?, ?, ?, ?, ?)";
+		PreparedStatement stmt = conn.prepareStatement(sql);
+		stmt.setInt(1, wette.getWettID());
+		stmt.setInt(2, wette.getAccountID());
+		stmt.setDouble(3, wette.getWetteinsatz());
+		stmt.setString(4, wette.getTipp());
+		stmt.setDouble(5, wette.getErloes());
+		stmt.executeUpdate();
+		stmt.close();
 	}
 	
 	public void setWettobjekte(Wettobjekt wettobjekt)
 	{
-		
+		String sql = "INSERT INTO wettobjekt VALUES(?, ?, ?, ?, ?, ?)";
+		PreparedStatement stmt = conn.prepareStatement(sql);
+		stmt.setInt(1, wettobjekt.getWettobjektID());
+		stmt.setString(2, wettobjekt.getBeschreibung());
+		stmt.setDate(3, wettobjekt.getWettstart());
+		stmt.setDate(4, wettobjekt.getWettende());
+		stmt.setInt(5, wettobjekt.getWettID());
+		stmt.setString(6, wettobjekt.getErgebnis());
+		stmt.executeUpdate();
+		stmt.close();
 	}
 	
 	public void close() throws SQLException
 	{
 		conn.close();
+	}
+	
+	public static void main(String[] args) throws ClassNotFoundException, SQLException 
+	{
+		WettDBManager db = new WettDBManager();
+		
+		db.close();
 	}
 }

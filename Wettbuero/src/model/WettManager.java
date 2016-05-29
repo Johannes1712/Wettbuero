@@ -1,9 +1,10 @@
-package model;
 /**
  * 
  * @author Michael Krapf
  *
  */
+
+package model;
 
 import java.util.ArrayList;
 
