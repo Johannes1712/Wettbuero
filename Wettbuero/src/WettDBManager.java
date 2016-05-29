@@ -23,18 +23,26 @@ public class WettDBManager
 		conn = DriverManager.getConnection("jdbc:mysql://localhost/wettmanager", "root", "");
 	}
 	
-	public ArrayList<Account> getAccounts()
+	public ArrayList<Account> getAccounts() throws SQLException
 	{
+		Account account;
 		ArrayList<Account> accounts = new ArrayList<Account>();
 		String sql = "SELECT * FROM account";
 		Statement stmt = conn.createStatement();
 		ResultSet rs = stmt.executeQuery(sql);
 		while(rs.next())
 		{
-			int spielerPassNr = rs.getInt("spielerPassNr");
-			accounts.add(holeSpieler(spielerPassNr));
+			int kontostand = rs.getInt("kontostand");
+			int accountID = rs.getInt("accountID");
+			String vorname = rs.getString("vorname");
+			String nachname = rs.getString("nachname");
+			String email = rs.getString("email");
+			account = new Account(kontostand, accountID, vorname, nachname, email);
+			accounts.add(account);
 		}
 		rs.close();
+		stmt.close();
+		
 		return accounts;
 	}
 	
