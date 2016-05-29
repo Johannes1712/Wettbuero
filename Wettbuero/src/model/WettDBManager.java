@@ -27,7 +27,7 @@ public class WettDBManager
 	
 	public ArrayList<Account> getAccounts() throws SQLException
 	{
-		Account account;
+		Account account = null;
 		ArrayList<Account> accounts = new ArrayList<Account>();
 		String sql = "SELECT * FROM account";
 		Statement stmt = conn.createStatement();
@@ -48,10 +48,10 @@ public class WettDBManager
 		return accounts;
 	}
 	
-	public Wette getWette(Wette wette)
+	public Wette getWette(Wette wette) throws SQLException
 	{
 		Wette wette1 = null;
-		String sql = "SELECT * FROM wette WHERE wette = " + wette;
+		String sql = "SELECT * FROM wette WHERE wettID = " + wette.getWettID();
 		Statement stmt = conn.createStatement();
 		ResultSet rs = stmt.executeQuery(sql);
 		while(rs.next())
@@ -69,10 +69,10 @@ public class WettDBManager
 		return wette1;
 	}
 	
-	public Wettobjekt getWettobjekt(Wettobjekt wettobjekt)
+	public Wettobjekt getWettobjekt(Wettobjekt wettobjekt) throws SQLException
 	{
 		Wettobjekt wettobjekt1 = null;
-		String sql = "SELECT * FROM wettobjekt WHERE wettobjektID = " + wettobjekt;
+		String sql = "SELECT * FROM wettobjekt WHERE wettobjektID = " + wettobjekt.getWettobjektID();
 		Statement stmt = conn.createStatement();
 		ResultSet rs = stmt.executeQuery(sql);
 		while(rs.next())
@@ -104,7 +104,7 @@ public class WettDBManager
 		stmt.close();
 	}
 	
-	public void setWette(Wette wette)
+	public void setWette(Wette wette) throws SQLException
 	{
 		String sql = "INSERT INTO wette VALUES(?, ?, ?, ?, ?)";
 		PreparedStatement stmt = conn.prepareStatement(sql);
@@ -117,7 +117,7 @@ public class WettDBManager
 		stmt.close();
 	}
 	
-	public void setWettobjekte(Wettobjekt wettobjekt)
+	public void setWettobjekte(Wettobjekt wettobjekt) throws SQLException
 	{
 		String sql = "INSERT INTO wettobjekt VALUES(?, ?, ?, ?, ?, ?)";
 		PreparedStatement stmt = conn.prepareStatement(sql);
