@@ -9,7 +9,7 @@ import java.util.TimerTask;
 
 abstract class Wettobjekt_Observeable extends Observable{
 	protected int id;
-	protected Date start;
+	protected Date begin;
 	protected Date end;
 	protected ArrayList<Wette> wetten;
 	public ArrayList<Observer> observer;
