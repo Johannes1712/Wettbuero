@@ -4,17 +4,21 @@ public class Lottowette extends Wette{
 	protected int[] wette;
 	protected int zaehler=0;
 	
-	public Lottowette(Account accountID, int wetteinsatz,int tipp,int erloes)
+	public Lottowette(int accountID, double wetteinsatz,String tipp,double erloes)
 	{
 		super(accountID, wetteinsatz,tipp,erloes);
 	}
-	public Lottowette(String pars, Account accountID, int wetteinsatz,int tipp,int erloes)
+	public Lottowette(String pars,int accountID, double wetteinsatz,String tipp,double erloes)
 	{
 		super(accountID, wetteinsatz,tipp,erloes);
-		wette[zaehler]=Integer.parseInt(pars);
-		zaehler++;
+		String []p=pars.split(pars, ',');
+		for(int i=0;i<=p.length-1;i++)
+		{
+			wette[i]=Integer.parseInt(p[i]);
+		}
+		
 	}
-	public Lottowette(int [] wette, Account accountID, int wetteinsatz,int tipp,int erloes)
+	public Lottowette(int [] wette, int accountID, double wetteinsatz,String tipp,double erloes)
 	{
 		super(accountID, wetteinsatz,tipp,erloes);
 		this.wette=wette;
