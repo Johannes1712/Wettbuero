@@ -1,19 +1,10 @@
 package model;
 
-<<<<<<< HEAD
-public class Wette {
+abstract class Wette {
 	protected int accountID;
 	protected double wetteinsatz;
 	protected String tipp;
 	protected double erloes;
-=======
-abstract class Wette {
-	protected Account accountID;
-	protected int wetteinsatz;
-	protected int tipp;
-	protected int erloes;
->>>>>>> branch 'master' of https://github.com/Johannes1712/Wettbuero.git
-	
 	
 	public Wette(int accountID, double wetteinsatz,String tipp,double erloes) 
 	{
@@ -38,6 +29,4 @@ abstract class Wette {
 	{
 		return accountID;
 	}
-	
-
 }
