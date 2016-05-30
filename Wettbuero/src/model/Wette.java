@@ -1,6 +1,6 @@
 package model;
 
-public class Wette {
+abstract class Wette {
 	protected Account accountID;
 	protected int wetteinsatz;
 	protected int tipp;
