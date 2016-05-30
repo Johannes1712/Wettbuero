@@ -25,4 +25,26 @@ public class Account
 	{
 		kontoBetrag = kontoBetrag - betrag;
 	}
+
+// ----------------------------------------------------------------------	
+	
+	public int getKontonummer() {
+		return kontoNummer;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public String getNachname() {
+		return nachname;
+	}
+
+	public int getKontobetrag() {
+		return kontoBetrag;
+	}
+
+	public String getVorname() {
+		return vorname;
+	}
 }
