@@ -51,17 +51,17 @@ public class WettDBManager
 	public Wette getWette(Wette wette) throws SQLException
 	{
 		Wette wette1 = null;
-		String sql = "SELECT * FROM wette WHERE wettID = " + wette.getWettID();
+		String sql = "SELECT * FROM wette WHERE accountID = " + wette.getAccountID();
 		Statement stmt = conn.createStatement();
 		ResultSet rs = stmt.executeQuery(sql);
 		while(rs.next())
 		{
-			int wettID = rs.getInt("wettID");
+			// int wettID = rs.getInt("wettID");
 			int accountID = rs.getInt("accountID");
 			double wetteinsatz = rs.getDouble("wetteinsatz");
 			String tipp = rs.getString("tipp");
 			double erloes = rs.getDouble("erloes");
-			wette1 = new Wette(wettID, accountID, wetteinsatz, tipp, erloes);
+			wette1 = new Wette(accountID, wetteinsatz, tipp, erloes);
 		}
 		rs.close();
 		stmt.close();
@@ -69,9 +69,9 @@ public class WettDBManager
 		return wette1;
 	}
 	
-	public Wettobjekt getWettobjekt(Wettobjekt wettobjekt) throws SQLException
+	public Wettobjekt_Observeable getWettobjekt(Wettobjekt_Observeable wettobjekt) throws SQLException
 	{
-		Wettobjekt wettobjekt1 = null;
+		Wettobjekt_Observeable wettobjekt1 = null;
 		String sql = "SELECT * FROM wettobjekt WHERE wettobjektID = " + wettobjekt.getWettobjektID();
 		Statement stmt = conn.createStatement();
 		ResultSet rs = stmt.executeQuery(sql);
@@ -83,7 +83,7 @@ public class WettDBManager
 			Date wettende = rs.getDate("wettende");
 			int wettID = rs.getInt("wettID");
 			String ergebnis = rs.getString("ergebnis");
-			wettobjekt1 = new Wettobjekt(wettobjektID, beschreibung, wettstart, wettende, wettID, ergebnis);
+			wettobjekt1 = new Wettobjekt_Observeable(wettobjektID, beschreibung, wettstart, wettende, wettID, ergebnis);
 		}
 		rs.close();
 		stmt.close();
@@ -108,7 +108,7 @@ public class WettDBManager
 	{
 		String sql = "INSERT INTO wette VALUES(?, ?, ?, ?, ?)";
 		PreparedStatement stmt = conn.prepareStatement(sql);
-		stmt.setInt(1, wette.getWettID());
+		// stmt.setInt(1, wette.getWettID());
 		stmt.setInt(2, wette.getAccountID());
 		stmt.setDouble(3, wette.getWetteinsatz());
 		stmt.setString(4, wette.getTipp());
@@ -117,7 +117,7 @@ public class WettDBManager
 		stmt.close();
 	}
 	
-	public void setWettobjekte(Wettobjekt wettobjekt) throws SQLException
+	public void setWettobjekte(Wettobjekt_Observeable wettobjekt) throws SQLException
 	{
 		String sql = "INSERT INTO wettobjekt VALUES(?, ?, ?, ?, ?, ?)";
 		PreparedStatement stmt = conn.prepareStatement(sql);

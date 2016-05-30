@@ -6,6 +6,7 @@
 
 package model;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class WettManager 
@@ -13,18 +14,18 @@ public class WettManager
 	private WettDBManager wettDBManager;
 	public ArrayList<Account> accountListe;
 	
-	public void wetteSetzen(Wette wette)
+	public void wetteSetzen(Wette wette) throws SQLException
 	{
-		
+		wettDBManager.setWette(wette);
 	}
 	
-	public void accountsErstellen(Account account)
+	public void accountsErstellen(Account account) throws SQLException
 	{
-		
+		wettDBManager.setAccount(account);
 	}
 	
-	public void wettObjektSetzen(Wettobjekt wettobjekt)
+	public void wettObjektSetzen(Wettobjekt_Observeable wettobjekt) throws SQLException
 	{
-		
+		wettDBManager.setWettobjekte(wettobjekt);
 	}
 }
