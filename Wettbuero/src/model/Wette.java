@@ -1,11 +1,35 @@
+package model;
+
 public class Wette {
-	protected Account account;
-	protected Wette einstatz;
+	protected Account accountID;
+	protected int wetteinsatz;
+	protected int tipp;
+	protected int erloes;
 	
-	public Wette(int kontobetrag, String vorname, String nachname, String email,Wette einsatz) 
+	
+	public Wette(Account accountID, int wetteinsatz,int tipp,int erloes) 
 	{
-		account=new Account(kontobetrag,vorname,nachname,email);
-		this.einstatz=einsatz;
+		this.accountID=accountID;
+		this.wetteinsatz=wetteinsatz;
+		this.tipp=tipp;
+		this.erloes=erloes;
 	}
+	public int getTipp()
+	{
+		return tipp;
+	}
+	public int getErloes()
+	{
+		return erloes;
+	}
+	public int getWetteinsatz()
+	{
+		return wetteinsatz;
+	}
+	public Account getAccountID()
+	{
+		return accountID;
+	}
+	
 
 }
