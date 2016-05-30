@@ -1,32 +1,32 @@
 package model;
 
 public class Wette {
-	protected Account accountID;
-	protected int wetteinsatz;
-	protected int tipp;
-	protected int erloes;
+	protected int accountID;
+	protected double wetteinsatz;
+	protected String tipp;
+	protected double erloes;
 	
 	
-	public Wette(Account accountID, int wetteinsatz,int tipp,int erloes) 
+	public Wette(int accountID, double wetteinsatz,String tipp,double erloes) 
 	{
 		this.accountID=accountID;
 		this.wetteinsatz=wetteinsatz;
 		this.tipp=tipp;
 		this.erloes=erloes;
 	}
-	public int getTipp()
+	public String getTipp()
 	{
 		return tipp;
 	}
-	public int getErloes()
+	public double getErloes()
 	{
 		return erloes;
 	}
-	public int getWetteinsatz()
+	public double getWetteinsatz()
 	{
 		return wetteinsatz;
 	}
-	public Account getAccountID()
+	public int getAccountID()
 	{
 		return accountID;
 	}
