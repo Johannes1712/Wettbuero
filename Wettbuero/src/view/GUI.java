@@ -10,8 +10,7 @@ class GUI implements Observer {
 	}
 
 	@Override
-	public void update(Observable arg0, Object arg1) {
-		
+	public void update(Observable arg, Object wettobjekt) {
 		
 		
 	}

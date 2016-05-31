@@ -6,8 +6,8 @@ public class LottoWettObjekt extends Wettobjekt_Observeable {
 	
 	protected int[] zahlen;
 
-	public LottoWettObjekt(Date begin, Date end, String pars){
-		super(begin,end);
+	public LottoWettObjekt(Date begin, Date end, String beschreibung, String pars){
+		super(begin,end,beschreibung);
 		
 		String []p=pars.split(pars, ',');
 		for(int i=0;i<=p.length-1;i++)
@@ -16,8 +16,8 @@ public class LottoWettObjekt extends Wettobjekt_Observeable {
 		}
 	}
 	
-	public LottoWettObjekt(Date begin, Date end,int[] zahl){
-		super(begin,end);
+	public LottoWettObjekt(Date begin, Date end,String beschreibung, int[] zahl){
+		super(begin,end,beschreibung);
 		this.zahlen=zahl;
 	}
 

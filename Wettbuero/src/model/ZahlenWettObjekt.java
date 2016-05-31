@@ -6,12 +6,12 @@ public class ZahlenWettObjekt extends Wettobjekt_Observeable {
 
 	int zahl;
 	
-	public ZahlenWettObjekt(Date begin, Date end, String pars){
-		super(begin,end);
+	public ZahlenWettObjekt(Date begin, Date end,String beschreibung, String pars){
+		super(begin,end,beschreibung);
 		this.zahl=Integer.parseInt(pars);
 	}
-	public ZahlenWettObjekt(Date begin, Date end,int zahl){
-		super(begin,end);
+	public ZahlenWettObjekt(Date begin, Date end, String beschreibung, int zahl){
+		super(begin,end,beschreibung);
 		this.zahl=zahl;
 	}
 

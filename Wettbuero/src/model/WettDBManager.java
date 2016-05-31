@@ -123,8 +123,8 @@ public class WettDBManager
 		PreparedStatement stmt = conn.prepareStatement(sql);
 		stmt.setInt(1, wettobjekt.getWettobjektID());
 		stmt.setString(2, wettobjekt.getBeschreibung());
-		stmt.setDate(3, wettobjekt.getWettstart());
-		stmt.setDate(4, wettobjekt.getWettende());
+		stmt.setDate(3, wettobjekt.getBeginDate());
+		stmt.setDate(4, wettobjekt.getEndDate());
 		stmt.setInt(5, wettobjekt.getWettID());
 		stmt.setString(6, wettobjekt.getErgebnis());
 		stmt.executeUpdate();
