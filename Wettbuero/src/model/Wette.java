@@ -2,25 +2,16 @@ package model;
 
 abstract class Wette {
 	protected int accountID;
+	protected Account account;
 	protected double wetteinsatz;
-	protected String tipp;
-	protected double erloes;
 	
-	public Wette(int accountID, double wetteinsatz,String tipp,double erloes) 
+	public Wette(int accountID,Account account, double wetteinsatz) 
 	{
 		this.accountID=accountID;
 		this.wetteinsatz=wetteinsatz;
-		this.tipp=tipp;
-		this.erloes=erloes;
+		this.account=account;
 	}
-	public String getTipp()
-	{
-		return tipp;
-	}
-	public double getErloes()
-	{
-		return erloes;
-	}
+
 	public double getWetteinsatz()
 	{
 		return wetteinsatz;
@@ -28,5 +19,9 @@ abstract class Wette {
 	public int getAccountID()
 	{
 		return accountID;
+	}
+	public Account getAccount()
+	{
+		return account;
 	}
 }

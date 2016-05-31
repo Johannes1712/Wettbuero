@@ -2,19 +2,24 @@ package model;
 public class Zahlenwette extends Wette {
 	
 	protected int wette;
-	public Zahlenwette(int accountID, double wetteinsatz,String tipp,double erloes)
+	
+	/*public Zahlenwette(int accountID,Account account, double wetteinsatz)
 	{
-		super(accountID, wetteinsatz,tipp,erloes);
+		super(accountID,account, wetteinsatz);
+	}*/
+	public Zahlenwette(String pars, int accountID,Account account, double wetteinsatz)
+	{
+		super(accountID,account, wetteinsatz);
+		this.wette=Integer.parseInt(pars);
 	}
-	public Zahlenwette(String pars, int accountID, double wetteinsatz,String tipp,double erloes)
+	public Zahlenwette(int wette, int accountID,Account account,double wetteinsatz)
 	{
-		super(accountID, wetteinsatz,tipp,erloes);
-		wette=Integer.parseInt(pars);
-	}
-	public Zahlenwette(int wette, int accountID, double wetteinsatz,String tipp,double erloes)
-	{
-		super(accountID, wetteinsatz,tipp,erloes);
+		super(accountID, account, wetteinsatz);
 		this.wette=wette;
+	}
+	
+	public int getWette(){
+		return wette;
 	}
 
 

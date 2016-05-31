@@ -8,6 +8,7 @@ import java.util.TimerTask;
 
 abstract class Wettobjekt_Observeable extends TimerTask{
 	protected int id;
+	protected boolean gestartet;
 	protected Date begin;
 	protected Date end;
 	protected ArrayList<Wette> wettenliste;
@@ -26,7 +27,10 @@ abstract class Wettobjekt_Observeable extends TimerTask{
 	}
 
 	public void wetten (Wette wette) {
-		wettenliste.add(wette);
+		if(!gestartet){
+			wettenliste.add(wette);
+			//alleObserverUpdateSenden();
+		}
 	}
 
 	/*public void run() {
@@ -34,10 +38,13 @@ abstract class Wettobjekt_Observeable extends TimerTask{
 		  start();
 		} else{
 			end();
+			//alleObserverUpdateSenden();
 		}
 	}*/
 
-	abstract void start();
+	public void start(){
+		gestartet=true;
+	}
 
 	abstract void end();
 
@@ -45,7 +52,7 @@ abstract class Wettobjekt_Observeable extends TimerTask{
 		observerliste.add(observer);
 	}
 
-	/*public void alleObserverUpdateSenden () {
+	/*public void alleObserverUpdateSenden() {
 		if(this.hasChanged()){
 			this.notifyObservers(this);
 			this.clearChanged();
