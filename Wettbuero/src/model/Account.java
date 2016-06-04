@@ -7,13 +7,15 @@ public class Account
 	String vorname;
 	String nachname;
 	String email;
-	public Account(int kontoBetrag,int kontoNummer, String vorname, String nachname, String email)
+	String passwort;
+	public Account(int kontoBetrag,int kontoNummer, String vorname, String nachname, String email,String passwort)
 	{
 		this.kontoBetrag = kontoBetrag;
 		this.kontoNummer = kontoNummer;
 		this.vorname = vorname;
 		this.nachname = nachname;
 		this.email = email;
+		this.passwort = passwort;
 	}
 	
 	public void einzahlung(int betrag)
@@ -46,5 +48,8 @@ public class Account
 
 	public String getVorname() {
 		return vorname;
+	}
+	public String getPasswort() {
+		return passwort;
 	}
 }
