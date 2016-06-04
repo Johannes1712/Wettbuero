@@ -8,10 +8,9 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
-<AnchorPane prefHeight="501.0" prefWidth="488.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.60">
+<AnchorPane prefHeight="501.0" prefWidth="488.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <SplitPane dividerPositions="0.5" layoutY="1.0" orientation="VERTICAL" prefHeight="500.0" prefWidth="500.0">
+      <SplitPane dividerPositions="0.38755020080321284" layoutY="1.0" orientation="VERTICAL" prefHeight="500.0" prefWidth="500.0">
         <items>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="250.0" prefWidth="500.0">
                <children>
@@ -36,6 +35,26 @@
                                     <Font name="Century Gothic" size="18.0" />
                                  </font>
                               </Text>
+                              <Text layoutX="24.0" layoutY="70.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Vorname:">
+                                 <font>
+                                    <Font name="Century Gothic" size="14.0" />
+                                 </font>
+                              </Text>
+                              <Text layoutX="24.0" layoutY="106.0" strokeType="OUTSIDE" strokeWidth="0.0" text="E-Mail Adressse:">
+                                 <font>
+                                    <Font name="Century Gothic" size="14.0" />
+                                 </font>
+                              </Text>
+                              <Text layoutX="24.0" layoutY="124.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Kontostand:">
+                                 <font>
+                                    <Font name="Century Gothic" size="14.0" />
+                                 </font>
+                              </Text>
+                              <Text layoutX="24.0" layoutY="88.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nachname:">
+                                 <font>
+                                    <Font name="Century Gothic" size="14.0" />
+                                 </font>
+                              </Text>
                            </children>
                         </AnchorPane>
                     </items>
@@ -44,7 +63,7 @@
             </AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="250.0" prefWidth="500.0">
                <children>
-                  <ScrollPane layoutX="-1.0" layoutY="-2.0" prefHeight="250.0" prefWidth="500.0">
+                  <ScrollPane layoutX="-1.0" layoutY="-2.0" prefHeight="308.0" prefWidth="500.0">
                     <content>
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0">
                            <children>
