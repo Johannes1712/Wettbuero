@@ -73,15 +73,34 @@ public class WettDBManager
 		String sql = "SELECT * FROM wettobjekt WHERE wettobjektID = " + wettobjekt.getID();
 		Statement stmt = conn.createStatement();
 		ResultSet rs = stmt.executeQuery(sql);
-		while(rs.next())
+		if(wettobjekt instanceof LottoWettObjekt)
 		{
-			Date wettstart = rs.getDate("wettstart");
-			Date wettende = rs.getDate("wettende");
-			String beschreibung = rs.getString("beschreibung");
-			wettobjekt1 = new Wettobjekt_Observeable(wettstart, wettende, beschreibung);
+			while(rs.next())
+			{
+				Date wettstart = rs.getDate("wettstart");
+				Date wettende = rs.getDate("wettende");
+				String beschreibung = rs.getString("beschreibung");
+				int[] zahlen = null;
+				wettobjekt1 = new LottoWettObjekt(wettstart, wettende, beschreibung, zahlen);
+				wettobjekt1 = (Wettobjekt_Observeable) wettobjekt1;
+			}
+			rs.close();
+			stmt.close();
 		}
-		rs.close();
-		stmt.close();
+		if(wettobjekt instanceof ZahlenWettObjekt)
+		{
+			while(rs.next())
+			{
+				Date wettstart = rs.getDate("wettstart");
+				Date wettende = rs.getDate("wettende");
+				String beschreibung = rs.getString("beschreibung");
+				int zahl = rs.getInt("zahl");
+				wettobjekt1 = new ZahlenWettObjekt(wettstart, wettende, beschreibung, zahl);
+				wettobjekt1 = (Wettobjekt_Observeable) wettobjekt1;
+			}
+			rs.close();
+			stmt.close();
+		}
 		
 		return wettobjekt1;
 	}
