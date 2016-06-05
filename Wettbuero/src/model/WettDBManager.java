@@ -57,11 +57,8 @@ public class WettDBManager
 		ResultSet rs = stmt.executeQuery(sql);
 		while(rs.next())
 		{
-			// int wettID = rs.getInt("wettID");
 			int accountID = rs.getInt("accountID");
 			double wetteinsatz = rs.getDouble("wetteinsatz");
-			// String tipp = rs.getString("tipp");
-			// double erloes = rs.getDouble("erloes");
 			wette1 = new Wette(accountID, account, wetteinsatz);
 		}
 		rs.close();
@@ -73,17 +70,14 @@ public class WettDBManager
 	public Wettobjekt_Observeable getWettobjekt(Wettobjekt_Observeable wettobjekt) throws SQLException
 	{
 		Wettobjekt_Observeable wettobjekt1 = null;
-		String sql = "SELECT * FROM wettobjekt WHERE wettobjektID = " + wettobjekt.getWettobjektID();
+		String sql = "SELECT * FROM wettobjekt WHERE wettobjektID = " + wettobjekt.getID();
 		Statement stmt = conn.createStatement();
 		ResultSet rs = stmt.executeQuery(sql);
 		while(rs.next())
 		{
-			int wettobjektID = rs.getInt("wettobjektID");
-			String beschreibung = rs.getString("beschreibung");
 			Date wettstart = rs.getDate("wettstart");
 			Date wettende = rs.getDate("wettende");
-			int wettID = rs.getInt("wettID");
-			String ergebnis = rs.getString("ergebnis");
+			String beschreibung = rs.getString("beschreibung");
 			wettobjekt1 = new Wettobjekt_Observeable(wettstart, wettende, beschreibung);
 		}
 		rs.close();
