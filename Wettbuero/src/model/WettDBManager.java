@@ -80,7 +80,7 @@ public class WettDBManager
 				Date wettstart = rs.getDate("wettstart");
 				Date wettende = rs.getDate("wettende");
 				String beschreibung = rs.getString("beschreibung");
-				int[] zahlen = null;
+				String zahlen = rs.getString("ergebnis");
 				wettobjekt1 = new LottoWettObjekt(wettstart, wettende, beschreibung, zahlen);
 				wettobjekt1 = (Wettobjekt_Observeable) wettobjekt1;
 			}
@@ -94,7 +94,7 @@ public class WettDBManager
 				Date wettstart = rs.getDate("wettstart");
 				Date wettende = rs.getDate("wettende");
 				String beschreibung = rs.getString("beschreibung");
-				int zahl = rs.getInt("zahl");
+				int zahl = rs.getInt("ergebnis");
 				wettobjekt1 = new ZahlenWettObjekt(wettstart, wettende, beschreibung, zahl);
 				wettobjekt1 = (Wettobjekt_Observeable) wettobjekt1;
 			}
