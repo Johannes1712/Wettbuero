@@ -59,7 +59,7 @@ public class WettDBManager
 		{
 			int accountID = rs.getInt("accountID");
 			double wetteinsatz = rs.getDouble("wetteinsatz");
-			wette1 = new Wette(accountID, account, wetteinsatz);
+			// wette1 = new Wette(accountID, account, wetteinsatz);
 		}
 		rs.close();
 		stmt.close();
