@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.ScrollBar?>
 <?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
@@ -10,7 +11,7 @@
 
 <AnchorPane prefHeight="501.0" prefWidth="488.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <SplitPane dividerPositions="0.38755020080321284" layoutY="1.0" orientation="VERTICAL" prefHeight="500.0" prefWidth="500.0">
+      <SplitPane dividerPositions="0.39959839357429716" layoutY="1.0" orientation="VERTICAL" prefHeight="500.0" prefWidth="500.0">
         <items>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="250.0" prefWidth="500.0">
                <children>
@@ -23,9 +24,9 @@
                                     <Font name="Century Gothic" size="18.0" />
                                  </font>
                               </Text>
-                              <TextField layoutX="50.0" layoutY="57.0" promptText="WettID" />
-                              <TextField layoutX="50.0" layoutY="99.0" promptText="Wetteinsatz" />
-                              <Button layoutX="144.0" layoutY="140.0" mnemonicParsing="false" text="Wetten" />
+                              <TextField fx:id="wettID" layoutX="50.0" layoutY="57.0" promptText="WettID" />
+                              <TextField fx:id="wettEinsatz" layoutX="50.0" layoutY="99.0" promptText="Wetteinsatz" />
+                              <Button fx:id="wettenButton" layoutX="144.0" layoutY="140.0" mnemonicParsing="false" onAction="#wetteErfassen" text="Wetten" />
                            </children>
                         </AnchorPane>
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="250.0" prefWidth="500.0">
@@ -35,22 +36,22 @@
                                     <Font name="Century Gothic" size="18.0" />
                                  </font>
                               </Text>
-                              <Text layoutX="24.0" layoutY="70.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Vorname:">
+                              <Text fx:id="vorname" layoutX="24.0" layoutY="68.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Vorname:">
                                  <font>
                                     <Font name="Century Gothic" size="14.0" />
                                  </font>
                               </Text>
-                              <Text layoutX="24.0" layoutY="106.0" strokeType="OUTSIDE" strokeWidth="0.0" text="E-Mail Adressse:">
+                              <Text fx:id="email" layoutX="24.0" layoutY="104.0" strokeType="OUTSIDE" strokeWidth="0.0" text="E-Mail Adressse:">
                                  <font>
                                     <Font name="Century Gothic" size="14.0" />
                                  </font>
                               </Text>
-                              <Text layoutX="24.0" layoutY="124.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Kontostand:">
+                              <Text fx:id="kontostand" layoutX="24.0" layoutY="122.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Kontostand:">
                                  <font>
                                     <Font name="Century Gothic" size="14.0" />
                                  </font>
                               </Text>
-                              <Text layoutX="24.0" layoutY="88.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nachname:">
+                              <Text fx:id="nachname" layoutX="24.0" layoutY="86.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nachname:">
                                  <font>
                                     <Font name="Century Gothic" size="14.0" />
                                  </font>
@@ -63,19 +64,13 @@
             </AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="250.0" prefWidth="500.0">
                <children>
-                  <ScrollPane layoutX="-1.0" layoutY="-2.0" prefHeight="308.0" prefWidth="500.0">
-                    <content>
-                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0">
-                           <children>
-                              <Text layoutX="14.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Wettübersicht">
-                                 <font>
-                                    <Font name="Century Gothic" size="18.0" />
-                                 </font>
-                              </Text>
-                           </children>
-                        </AnchorPane>
-                    </content>
-                  </ScrollPane>
+                  <TextArea fx:id="wetten" layoutX="-1.0" layoutY="48.0" prefHeight="248.0" prefWidth="500.0" />
+                  <ScrollBar id="wetten" fx:id="scroll" layoutX="484.0" layoutY="48.0" orientation="VERTICAL" prefHeight="248.0" prefWidth="14.0" />
+                  <Text layoutX="14.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Wettübersicht">
+                     <font>
+                        <Font name="Century Gothic" size="18.0" />
+                     </font>
+                  </Text>
                </children>
             </AnchorPane>
         </items>
