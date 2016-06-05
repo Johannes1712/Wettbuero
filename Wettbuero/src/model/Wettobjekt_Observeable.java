@@ -75,5 +75,10 @@ abstract class Wettobjekt_Observeable extends TimerTask{
 	public int getID(){
 		return id;
 	}
+	
+	public String getBeschreibung()
+	{
+		return beschreibung;
+	}
 
 }

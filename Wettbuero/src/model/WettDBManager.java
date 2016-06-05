@@ -39,7 +39,8 @@ public class WettDBManager
 			String vorname = rs.getString("vorname");
 			String nachname = rs.getString("nachname");
 			String email = rs.getString("email");
-			account = new Account(kontostand, accountID, vorname, nachname, email);
+			String passwort = rs.getString("passwort");
+			account = new Account(kontostand, accountID, vorname, nachname, email, passwort);
 			accounts.add(account);
 		}
 		rs.close();
@@ -59,9 +60,9 @@ public class WettDBManager
 			// int wettID = rs.getInt("wettID");
 			int accountID = rs.getInt("accountID");
 			double wetteinsatz = rs.getDouble("wetteinsatz");
-			String tipp = rs.getString("tipp");
-			double erloes = rs.getDouble("erloes");
-			wette1 = new Wette(accountID, wetteinsatz, tipp, erloes);
+			// String tipp = rs.getString("tipp");
+			// double erloes = rs.getDouble("erloes");
+			wette1 = new Wette(accountID, account, wetteinsatz);
 		}
 		rs.close();
 		stmt.close();
@@ -83,7 +84,7 @@ public class WettDBManager
 			Date wettende = rs.getDate("wettende");
 			int wettID = rs.getInt("wettID");
 			String ergebnis = rs.getString("ergebnis");
-			wettobjekt1 = new Wettobjekt_Observeable(wettobjektID, beschreibung, wettstart, wettende, wettID, ergebnis);
+			wettobjekt1 = new Wettobjekt_Observeable(wettstart, wettende, beschreibung);
 		}
 		rs.close();
 		stmt.close();
@@ -111,8 +112,8 @@ public class WettDBManager
 		// stmt.setInt(1, wette.getWettID());
 		stmt.setInt(2, wette.getAccountID());
 		stmt.setDouble(3, wette.getWetteinsatz());
-		stmt.setString(4, wette.getTipp());
-		stmt.setDouble(5, wette.getErloes());
+		// stmt.setString(4, wette.getTipp());
+		// stmt.setDouble(5, wette.getErloes());
 		stmt.executeUpdate();
 		stmt.close();
 	}
@@ -121,12 +122,12 @@ public class WettDBManager
 	{
 		String sql = "INSERT INTO wettobjekt VALUES(?, ?, ?, ?, ?, ?)";
 		PreparedStatement stmt = conn.prepareStatement(sql);
-		stmt.setInt(1, wettobjekt.getWettobjektID());
+		// stmt.setInt(1, wettobjekt.getWettobjektID());
 		stmt.setString(2, wettobjekt.getBeschreibung());
 		stmt.setDate(3, wettobjekt.getBeginDate());
 		stmt.setDate(4, wettobjekt.getEndDate());
-		stmt.setInt(5, wettobjekt.getWettID());
-		stmt.setString(6, wettobjekt.getErgebnis());
+		// stmt.setInt(5, wettobjekt.getWettID());
+		// stmt.setString(6, wettobjekt.getErgebnis());
 		stmt.executeUpdate();
 		stmt.close();
 	}
