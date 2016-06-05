@@ -136,11 +136,4 @@ public class WettDBManager
 	{
 		conn.close();
 	}
-	
-	public static void main(String[] args) throws ClassNotFoundException, SQLException 
-	{
-		WettDBManager db = new WettDBManager();
-		
-		db.close();
-	}
 }
