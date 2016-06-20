@@ -31,7 +31,6 @@ abstract class Wettobjekt_Observeable extends TimerTask{
 		date = new Date(0);
 		Timer t = WettTimerSingleton.getInstance();
 		t.schedule(this, end);
-		t.schedule(this, begin);
 	}
 
 	public void wetten (Wette wette) {

@@ -1,10 +1,8 @@
 package view;
 
-import java.awt.TextField;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -12,10 +10,13 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextArea;
-import javafx.scene.text.Text;
+import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import model.Account;
+import model.Lottowette;
 import model.WettDBManager;
+import model.Zahlenwette;
 
 
 public class Controller 
@@ -27,20 +28,19 @@ public class Controller
 	@FXML
 	private TextField nameFeld;
 	@FXML
-	private TextField wettID;
+	private TextField wettIDlotto;
 	@FXML
-	private TextField WettEinsatz;
+	private TextField wettIDzahlen;
 	@FXML
-	private Text vorname;
+	private TextField lottotipp;
 	@FXML
-	private Text nachname;
+	private TextField zahlentipp;
 	@FXML
-	private Text email;
+	private TextField lottoeinsatz;
 	@FXML
-	private Text kontostand;
+	private TextField zahleneinsatz;
 	@FXML
 	private TextArea wetten;
-	
 	
 	public void login(ActionEvent e) throws SQLException, ClassNotFoundException, IOException
 	{
@@ -57,17 +57,24 @@ public class Controller
 				break;		
 			}
 		}
-		Parent root = FXMLLoader.load(getClass().getResource("wettbuero.fxml"));
+		Parent root = FXMLLoader.load(getClass().getResource("view/wettbuero.fxml"));
 		Scene scene = new Scene(root);
 		Stage primaryStage = new Stage();
 		primaryStage.setScene(scene);
-		primaryStage.show();
         primaryStage.setTitle("Wettbüro");
-        
+        primaryStage.getIcons().add(new Image(getClass().getResourceAsStream("wette.png")));  
+        String wettenliste = wm.getWetten();
+        wetten.setText(wettenliste);
+        primaryStage.show();
 	}
-	
-	public void wetteErfassen(ActionEvent e)
+	public void wetteErfassenLotto(ActionEvent e) throws SQLException
 	{
+		Lottowette wette = new Lottowette(lottotipp.getText(),eingeloggterAccount.getID(),eingeloggterAccount,Double.parseDouble(lottoeinsatz.getText()));
+		wm.setWette(wette);
 	}
-	
+	public void wetteErfassenZahlen(ActionEvent e) throws SQLException
+	{
+		Zahlenwette wette = new Zahlenwette(lottotipp.getText(),eingeloggterAccount.getID(),eingeloggterAccount,Double.parseDouble(lottoeinsatz.getText()));
+		wm.setWette(wette);
+	}
 }

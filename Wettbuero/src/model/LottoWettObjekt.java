@@ -53,7 +53,7 @@ public class LottoWettObjekt extends Wettobjekt_Observeable {
 			Account account=wette.getAccount();
 			Lottowette wette_1=(Lottowette)wette;
 			
-			if(wette instanceof Zahlenwette){
+			if(wette instanceof Lottowette){
 				
 				if(richtigeTipps(wette_1)==6){
 					account.einzahlung(account.getKontobetrag()*10);

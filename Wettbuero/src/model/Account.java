@@ -2,6 +2,8 @@ package model;
 //Buchis Klasse => finger weck!!!
 public class Account 
 {
+	static int anzAcc = 0;
+	int id;
 	int kontoBetrag;
 	int kontoNummer;
 	String vorname;
@@ -10,6 +12,8 @@ public class Account
 	String passwort;
 	public Account(int kontoBetrag,int kontoNummer, String vorname, String nachname, String email,String passwort)
 	{
+		anzAcc++;
+		id = anzAcc;
 		this.kontoBetrag = kontoBetrag;
 		this.kontoNummer = kontoNummer;
 		this.vorname = vorname;
@@ -52,5 +56,10 @@ public class Account
 	
 	public String getPasswort() {
 		return passwort;
+	}
+
+	public int getID() {
+		// TODO Auto-generated method stub
+		return id;
 	}
 }

@@ -149,4 +149,9 @@ public class WettDBManager
 	{
 		conn.close();
 	}
+
+	public String getWetten() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
